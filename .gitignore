@@ -1,0 +1,16 @@
+curl
+
+*.o
+*.a
+*.so
+*.out
+
+*.swp
+*.swo
+
+*.html
+*.tmp
+*.txt
+
+pkgIndex.tcl
+
