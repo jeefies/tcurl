@@ -11,6 +11,9 @@ curl
 *.html
 *.tmp
 *.txt
+*.vim
+
+test-*
 
 pkgIndex.tcl
 

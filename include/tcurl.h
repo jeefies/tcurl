@@ -1,9 +1,9 @@
-#ifndef _SCURL_C_H_
-#define _SCURL_C_H_
+#ifndef _TCURL_C_H_
+#define _TCURL_C_H_
 #include "buffer.h"
 #include <curl/curl.h>
 
-typedef struct curl_slist scurl_slist;
+typedef struct curl_slist tcurl_slist;
 /*
  * struct curl_slist {
  * 	char *data;
@@ -11,23 +11,26 @@ typedef struct curl_slist scurl_slist;
  * }
  */
 
-#define SCURL_CALL 0
-#define SCURL_ALL 1
+#define TCURL_CALL 0
+#define TCURL_ALL 1
+#define TCURL_RESULT 2
 
-void scurl_init();
-void scurl_quit();
-char * scurl_err();
-void scurl_set_err(const char * errmsg);
-int scurl_err_l();
+void tcurl_init();
+void tcurl_quit();
+char * tcurl_err();
+void tcurl_set_err(const char * errmsg);
+int tcurl_err_l();
 
 // The following command would just apply to the following get method
-void scurl_add_header(const char * title, const char * content);
-scurl_slist * scurl_get_headers();
-Buffer * get(const char * url);
+
+void tcurl_add_header(const char * title, const char * content);
+tcurl_slist * tcurl_get_headers();
+Buffer * tcurl_get(const char * url);
+Buffer * tcurl_head(const char * url);
 
 // The following command would return the result of the latest get call
-char * scurl_get_rsp_header();
+Buffer * tcurl_get_rsp_header();
 
-void scurl_cleanup(int type);
+void tcurl_cleanup(int type);
 
 #endif
